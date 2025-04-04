@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Caverna - A Jornada</title>
+    <link rel="icon" href="assets/images/Vector.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+        #game-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+        #loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            z-index: 10;
+        }
+        #loading h1 {
+            color: #ff0000;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 80%;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #ff0000;
+            transition: width 0.3s ease;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        #instructions {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        @media (max-width: 800px) {
+            #game-container {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="loading">
+            <img src="assets/images/Vector.png" alt="Modo Caverna Logo" class="logo">
+            <h1>MODO CAVERNA</h1>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <div id="instructions">
+                Use as setas para mover e espaço para interagir
+            </div>
+        </div>
+    </div>
+
+    <!-- Phaser Framework -->
+    <script src="lib/phaser.min.js"></script>
+    
+    <!-- Utilitários -->
+    <script src="js/utils/GameUtils.js"></script>
+    <script src="js/utils/TestConfig.js"></script>
+    <script src="js/utils/GameTester.js"></script>
+    <script src="js/utils/GameOptimizer.js"></script>
+    <script src="js/utils/TestIntegration.js"></script>
+    
+    <!-- Entidades -->
+    <script src="js/entities/Player.js"></script>
+    <script src="js/entities/CapitaoCaverna.js"></script>
+    <script src="js/entities/Enemy.js"></script>
+    
+    <!-- Sistemas -->
+    <script src="js/systems/DialogueSystem.js"></script>
+    
+    <!-- Cenas -->
+    <script src="js/scenes/BootScene.js"></script>
+    <script src="js/scenes/PreloaderScene.js"></script>
+    <script src="js/scenes/TitleScene.js"></script>
+    <script src="js/scenes/GameScene.js"></script>
+    <script src="js/scenes/UIScene.js"></script>
+    
+    <!-- Inicialização do Jogo -->
+    <script src="js/game.js"></script>
+</body>
+</html>
